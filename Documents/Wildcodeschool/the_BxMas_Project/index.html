@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bilal XMAS</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/png" href="images/trompette.png">
+</head>
+<body>
+  <header>
+    <h1>Joyeux Noël, Bilal !🎅🎄</h1>
+  </header>
+
+  <div class="content">
+    <h2>À propos de Bilal</h2>
+    <div class="interests">
+      <div class="interest">
+        <img src="images/Bilsanta.webp" alt="Trompette">
+        <p>Passionné de trompette</p>
+      </div>
+      <div class="interest">
+        <img src="images/Lafêteabibi.webp" alt="Fête">
+        <p>Roi des fêtes</p>
+      </div>
+      <div class="interest">
+        <img src="images/Bibiglobetrotter.webp" alt="Voyage">
+        <p>Grand voyageur</p>
+      </div>
+    </div>
+    <img src="images/yule.webp" alt="Merry Yule">
+  </div>
+
+  <footer>
+    <p>Créé avec ❤️ pour Bilal | Secret Santa 2024</p>
+    <p> et une pluie de flocon infinis...</p>
+  </footer>
+
+  <script>
+    const body = document.body;
+
+    function createSnowflake() {
+      const snowflake = document.createElement('div');
+      snowflake.classList.add('snowflake');
+      snowflake.textContent = '❄';
+
+
+      snowflake.style.left = Math.random() * 100 + 'vw';
+      snowflake.style.fontSize = Math.random() * 1.5 + 0.5 + 'em';
+      snowflake.style.animationDuration = Math.random() * 3 + 2 + 's';
+
+      body.appendChild(snowflake);
+
+      snowflake.addEventListener('animationend', () => {
+        snowflake.remove();
+      });
+    }
+
+    setInterval(createSnowflake, 300);
+  </script>
+</body>
+</html>
