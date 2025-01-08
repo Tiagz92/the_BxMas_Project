@@ -8,7 +8,7 @@ interface Movie {
 
 const getMovies =async (req : Request, res : Response) => {
 	try {
-		const [movies] = await movieRepository.readMovie();
+		const [movies] = await movieRepository.readMovies();
 	res.json(movies);
 	} catch (error) {
 		console.error(error);
