@@ -1,5 +1,5 @@
 import client from "../../../database/client";
-import type { Rows } from "../../../database/client";
+import type { Result, Rows } from "../../../database/client";
 
 interface Movie {
 	id: number,
@@ -15,7 +15,7 @@ const readMovieById = (id : number) => {
 }
 
 const createMovie = (movie : Movie) => {
-	return client.query("INSERT INTO movie (title) VALUES (?)", [movie.title]);
+	return client.query<Result>("INSERT INTO movie (title) VALUES (?)", [movie.title]);
 }
 
-export default { readMovies, readMovieById };
+export default { readMovies, readMovieById, createMovie };

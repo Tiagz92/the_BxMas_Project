@@ -18,6 +18,8 @@ import movieAction from "./modules/movie/movieActions"
 router.get("/movies", movieAction.getMovies);
 
 router.get("/movies/:id", movieAction.getOne);
+
+router.post("/movies", movieAction.postMovie);
 /* ************************************************************************* */
 
 export default router;

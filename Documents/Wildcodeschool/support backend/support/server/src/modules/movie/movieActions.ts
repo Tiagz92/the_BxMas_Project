@@ -8,7 +8,7 @@ interface Movie {
 
 const getMovies =async (req : Request, res : Response) => {
 	try {
-		const [movies] = await movieRepository.readMovies();
+	const [movies] = await movieRepository.readMovies();
 	res.json(movies);
 	} catch (error) {
 		console.error(error);
@@ -29,4 +29,16 @@ const getOne = async (req : Request, res : Response) => {
 	}
 };
 
-export default { getMovies, getOne };
+const postMovie = async (req : Request, res : Response) => {
+	try {
+	const movie = req.body;
+	const [result] = await movieRepository.createMovie(movie);
+	if (result.affectedRows > 0) res.sendStatus(201);
+	else res.sendStatus(400);
+	}catch (error) {
+		console.error(error);
+		res.sendStatus(500);
+	}
+}
+
+export default { getMovies, getOne, postMovie };
