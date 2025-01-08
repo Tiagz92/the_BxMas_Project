@@ -1,6 +1,11 @@
 import type { Request, Response } from "express";
 import movieRepository from "./movieRepository";
 
+interface Movie {
+	id: number,
+	title: string
+}
+
 const getMovies =async (req : Request, res : Response) => {
 	try {
 		const [movies] = await movieRepository.readMovie();
