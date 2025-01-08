@@ -20,7 +20,7 @@ const getMovies =async (req : Request, res : Response) => {
 const getOne = async (req : Request, res : Response) => {
 	try {
 	const { id } = req.params;
-	const [movie] = await movieRepository.readMovieById(id);
+	const [movie] = await movieRepository.readMovieById(Number(id));
 	if (movie.length > 0) res.json(movie);
 	else res.sendStatus(404);
 	} catch (error) {
