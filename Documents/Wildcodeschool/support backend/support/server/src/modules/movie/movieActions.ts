@@ -39,6 +39,19 @@ const postMovie = async (req : Request, res : Response) => {
 		console.error(error);
 		res.sendStatus(500);
 	}
+};
+
+const editMovie = async (req : Request, res : Response) => {
+	try {
+	const { id } = req.params;
+	const movie = req.body;	
+	const [result] = await movieRepository.updateMovie(movie, Number(id));
+	if (result.affectedRows > 0) res.sendStatus(200);
+	else res.sendStatus(404);
+	} catch (error) {
+		console.error(error);
+		res.sendStatus(500);
+	}
 }
 
-export default { getMovies, getOne, postMovie };
+export default { getMovies, getOne, postMovie, editMovie };
