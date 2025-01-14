@@ -14,8 +14,9 @@ router.get("/api/items/:id", itemActions.read);
 router.post("/api/items", itemActions.add);
 
 import movieAction from "./modules/movie/movieActions"
+import movieServices from "./modules/movie/movieServices"
 
-router.get("/movies", movieAction.getMovies);
+router.get("/movies",movieServices.validateMovie, movieAction.getMovies);
 
 router.get("/movies/:id", movieAction.getOne);
 
