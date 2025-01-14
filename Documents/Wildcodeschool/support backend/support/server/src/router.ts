@@ -20,6 +20,10 @@ router.get("/movies", movieAction.getMovies);
 router.get("/movies/:id", movieAction.getOne);
 
 router.post("/movies", movieAction.postMovie);
+
+router.put("/movies/:id", movieAction.editMovie);
+
+router.delete("/movies/:id", movieAction.destroyMovie);
 /* ************************************************************************* */
 
 export default router;

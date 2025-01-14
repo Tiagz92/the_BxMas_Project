@@ -22,4 +22,8 @@ const updateMovie = (movie: Movie, id: number) => {
 	return client.query<Result>("UPDATE movie SET ? WHERE id = ?", [movie, id]);
 }
 
-export default { readMovies, readMovieById, createMovie, updateMovie };
+const deleteMovie = (id: number) => {
+	return client.query<Result>("DELETE FROM movie WHERE id = ?", [id]);
+}
+
+export default { readMovies, readMovieById, createMovie, updateMovie, deleteMovie };

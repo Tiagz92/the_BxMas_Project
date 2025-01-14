@@ -54,4 +54,16 @@ const editMovie = async (req : Request, res : Response) => {
 	}
 }
 
-export default { getMovies, getOne, postMovie, editMovie };
+const destroyMovie = async (req : Request, res : Response) => {
+	try {
+	const { id } = req.params;
+	const [result] = await movieRepository.deleteMovie(Number(id));
+	if (result.affectedRows > 0) res.sendStatus(204);
+	else res.sendStatus(404);
+	} catch (error) {
+		console.error(error);
+		res.sendStatus(500);
+	}
+}
+
+export default { getMovies, getOne, postMovie, editMovie, destroyMovie };
